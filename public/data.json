@@ -1,0 +1,66 @@
+{
+    "items": [
+        {
+            "product": {
+                "id": 2321312,
+                "name": "Smartphone Apple iPhone 7 128GB",
+                "images": [
+                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/iphone-7-apple-plus-red-com-128gb-tela-retina-hd-de-55-ios-10-dupla-camera-traseira-resistente-a-agua-wi-fi-4g-lte-e-nfc-vermelho-11466328_VLv5iqPBt.jpg",
+                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_2_c.jpg?v=2347575274",
+                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_3_c.jpg?v=318433138",
+                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_4_c.jpg?v=33273730"
+                ],
+                "price": {
+                    "value": 3509.10,
+                    "installments": 10,
+                    "installmentValue": 389.90
+                }
+            }
+        },
+        {
+            "product": {
+                "id": 9971,
+                "name": "Smart TV Samsung Série 4 UN32J4300AG 32 polegadas LED Plana",
+                "images": [
+                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/MacBook-Pro-Apple-MJLQ2BZ-A-com-Intel-Core-i7-Quad-Core-16GB-256GB-SSD-Leitor-de-Cartoes-HDMI-Bluetooth-Tela-LED-Retina-15-4-e-OS-X-Yosemite-4996363_nSVRdaY1zE.jpg",
+                    "http://thumbs.buscape.com.br/__400x400-PU95547_2_c.jpg?v=3988579075",
+                    "http://thumbs.buscape.com.br/__400x400-PU95547_4_c.jpg?v=4208003525",
+                    "http://thumbs.buscape.com.br/__231312400x400-PU95547_5_c.jpg?v=1473261122"
+                ],
+                "price": {
+                    "value": 1139.90,
+                    "installments": 10,
+                    "installmentValue": 134.11
+                }
+            }
+        },
+        {
+            "product": {
+                "id": 6717131,
+                "name": "Câmera Digital Canon EOS Rebel T5i 18.0 Megapixels",
+                "images": [
+                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/Mac-Mini-Apple-MGEN2BZ-A-com-Intel-Core-i5-Dual-Core-8GB-1TB-Leitor-de-Cartoes-HDMI-Wireless-AC-Bluetooth-4-0-e-OS-X-Yosemite-3865616_7k6sB4ADI.jpg"
+                ],
+                "price": {
+                    "value": 1999.20,
+                    "installments": 10,
+                    "installmentValue": 235.20
+                }
+            }
+        },
+        {
+            "product": {
+                "id": 6717131,
+                "name": "Lenovo IdeaPad 310 80UH0004BR Intel Core i7-6500U 2.5 GHz 8192 MB 1024 GB",
+                "images": [
+                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/apple-macbook-air-13-i5-16ghz-8gb-128gb-ssd-mmgf2-11549005_ZCq7o5Cq02.jpg"
+                ],
+                "price": {
+                    "value": 2599.00,
+                    "installments": 10,
+                    "installmentValue": 259.90
+                }
+            }
+        }
+    ]
+}

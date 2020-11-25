@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Item from './components/Item';
 
 function App() {
+  const [state, setState] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('./data.json', {
+      headers: {
+        Accept: 'application/json',
+      },
+    }).then((res) => res.json())
+      .then((res) => setState(res.items),
+        setLoading(false));
+  }, []);
+
+  if (state.length === 0 || loading) {
+    return <h1>Carregando</h1>;
+  }
+
+  console.log(state);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <nav>
+        Nav
+      </nav>
+      <header>
+        <Item data={state} />
+
       </header>
-    </div>
+    </>
   );
 }
 
