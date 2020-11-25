@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -63,6 +61,7 @@ const Item = ({ data }) => {
                 </Grid>
                 <Grid item xs={4}>
                   <Paper className="imgList">
+                    {/* make a logic to verify if includes the current image on dataItem */}
                     <img
                       src={imageSrc.src
                         ? imageSrc.src
