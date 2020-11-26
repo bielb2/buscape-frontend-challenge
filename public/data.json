@@ -6,9 +6,9 @@
                 "name": "Smartphone Apple iPhone 7 128GB",
                 "images": [
                     "https://ik.imagekit.io/b0g9wlasxh/itelios-images/iphone-7-apple-plus-red-com-128gb-tela-retina-hd-de-55-ios-10-dupla-camera-traseira-resistente-a-agua-wi-fi-4g-lte-e-nfc-vermelho-11466328_VLv5iqPBt.jpg",
-                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_2_c.jpg?v=2347575274",
-                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_3_c.jpg?v=318433138",
-                    "http://thumbs.buscape.com.br/celular-e-smartphone/smartphone-apple-iphone-7-128gb/__200x400-PU98460_4_c.jpg?v=33273730"
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/iphone_7/iphone1_O7__tec6s.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/iphone_7/iphone3_dwQJc5fyLE.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/iphone_7/iphone2_leQb2emKa.jpeg"
                 ],
                 "price": {
                     "value": 3509.10,
@@ -22,10 +22,10 @@
                 "id": 9971,
                 "name": "Smart TV Samsung Série 4 UN32J4300AG 32 polegadas LED Plana",
                 "images": [
-                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/MacBook-Pro-Apple-MJLQ2BZ-A-com-Intel-Core-i7-Quad-Core-16GB-256GB-SSD-Leitor-de-Cartoes-HDMI-Bluetooth-Tela-LED-Retina-15-4-e-OS-X-Yosemite-4996363_nSVRdaY1zE.jpg",
-                    "http://thumbs.buscape.com.br/__400x400-PU95547_2_c.jpg?v=3988579075",
-                    "http://thumbs.buscape.com.br/__400x400-PU95547_4_c.jpg?v=4208003525",
-                    "http://thumbs.buscape.com.br/__231312400x400-PU95547_5_c.jpg?v=1473261122"
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/smart_tv/tv3_JDwgjZ48i.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/smart_tv/tv2_9cqsh6XVx.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/smart_tv/tv1_hAtFL2grv0.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/smart_tv/tv4_QlKmJ7uthW.jpeg"
                 ],
                 "price": {
                     "value": 1139.90,
@@ -39,7 +39,11 @@
                 "id": 6717131,
                 "name": "Câmera Digital Canon EOS Rebel T5i 18.0 Megapixels",
                 "images": [
-                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/Mac-Mini-Apple-MGEN2BZ-A-com-Intel-Core-i5-Dual-Core-8GB-1TB-Leitor-de-Cartoes-HDMI-Wireless-AC-Bluetooth-4-0-e-OS-X-Yosemite-3865616_7k6sB4ADI.jpg"
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/camera_digital/camera3_HPnuHvAsBj.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/camera_digital/camera4_a8fKvbfrs.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/camera_digital/camera1_x4SFDQ1mM.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/camera_digital/camera2_xoNm8V1t_p.jpeg"
+
                 ],
                 "price": {
                     "value": 1999.20,
@@ -53,7 +57,10 @@
                 "id": 6717131,
                 "name": "Lenovo IdeaPad 310 80UH0004BR Intel Core i7-6500U 2.5 GHz 8192 MB 1024 GB",
                 "images": [
-                    "https://ik.imagekit.io/b0g9wlasxh/itelios-images/apple-macbook-air-13-i5-16ghz-8gb-128gb-ssd-mmgf2-11549005_ZCq7o5Cq02.jpg"
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/notebook_lenovo/notebook1_Yan0lSfFNY.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/notebook_lenovo/notebook2_Fy0VAk48U.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/notebook_lenovo/notebook4_Ar7-WIPEh.jpeg",
+                    "https://ik.imagekit.io/b0g9wlasxh/buscape-images/downlodad_TIZctktlS.png"
                 ],
                 "price": {
                     "value": 2599.00,
