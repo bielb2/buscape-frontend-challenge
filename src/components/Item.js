@@ -8,8 +8,9 @@ const Item = ({ data }) => {
   const handleImageSrc = (e) => {
     e.preventDefault();
     setImageSrc(e.target);
+    console.log(e);
   };
-  console.log(imageSrc);
+
   return (
     <>
       {data.map((dataItem) => {
@@ -20,42 +21,21 @@ const Item = ({ data }) => {
                 <Grid item xs={2}>
                   <Paper>
                     <ul className="imgList">
-                      <li>
-                        <a href={dataItem.product.images[0]}>
-                          <img
-                            onClick={handleImageSrc}
-                            src={dataItem.product.images[0]}
-                            alt={dataItem.product.name}
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a href={dataItem.product.images[1]}>
-                          <img
-                            onClick={handleImageSrc}
-                            src={dataItem.product.images[2]}
-                            alt={dataItem.product.name}
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a href={dataItem.product.images[2]}>
-                          <img
-                            onClick={handleImageSrc}
-                            src={dataItem.product.images[1]}
-                            alt={dataItem.product.name}
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a href={dataItem.product.images[0]}>
-                          <img
-                            onClick={handleImageSrc}
-                            src={dataItem.product.images[0]}
-                            alt={dataItem.product.name}
-                          />
-                        </a>
-                      </li>
+                      {dataItem.product.images.map((image) => {
+                        return (
+                          <li key={image.id}>
+                            <a href={image}>
+                              <img
+                                onClick={handleImageSrc}
+                                src={image}
+                                alt={dataItem.product.name}
+                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
+                              />
+                            </a>
+                          </li>
+                        );
+                      })}
+
                     </ul>
                   </Paper>
                 </Grid>
