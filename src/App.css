@@ -33,6 +33,11 @@ li>a>img {
   margin-bottom: 0.4rem;
 }
 
+li>a>img.active {
+    border-radius: 1rem;
+    border: 1px solid rgb(211, 199, 199);
+}
+
 li>a>img:hover {
     border-radius: 1rem;
     border: 1px solid rgb(211, 199, 199);
