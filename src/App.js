@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Item from './components/Item';
+import Cards from './components/Cards';
 
 function App() {
   const [state, setState] = useState([]);
@@ -27,8 +27,7 @@ function App() {
         Nav
       </nav>
       <header>
-        <Item data={state} />
-
+        <Cards data={state} />
       </header>
     </>
   );
