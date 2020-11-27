@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const Nav = () => {
   const [shoppingCart, setShoppingCart] = useState(false);
-  console.log(shoppingCart);
 
   const handleShoppingCart = () => {
     setShoppingCart(!shoppingCart);
@@ -24,16 +23,16 @@ const Nav = () => {
           ? (
             <>
               <div className="shoppingCart">
-                <div>
-                  <h1>img</h1>
-                  <h2>description</h2>
-                  <h3>value</h3>
-                </div>
-                <div className="shoppingCartValues">
-                  value
-                  value
-                  value
-                </div>
+                <ul>
+                  <li>img</li>
+                  <li>description</li>
+                  <li>value</li>
+                </ul>
+                <ul className="shoppingCartValues">
+                  <li>value</li>
+                  <li>value</li>
+                  <li>value</li>
+                </ul>
               </div>
 
             </>

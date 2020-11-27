@@ -11,6 +11,7 @@ const Card = ({
   const [imageSrc, setImageSrc] = useState('');
   const [activeImage, setActiveImage] = useState(true);
   const [shoppingCartValues, setShoppingCartValues] = useState([]);
+  console.log('🚀 ~ file: Card.js ~ line 16 ~ shoppingCartValues', shoppingCartValues);
 
   const handleImageSrc = (e) => {
     e.preventDefault();
