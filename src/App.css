@@ -22,7 +22,7 @@ nav {
   border: 1px solid red;
 }
 
-.displayMarket {
+.shoppingCart {
   width: 60vw;
 
   position: absolute;
@@ -36,7 +36,7 @@ nav {
   border: 1px solid red;
 }
 
-.displayValue {
+.shoppingCartValues {
   background: rgb(236, 197, 19);
 
 }
