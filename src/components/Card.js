@@ -1,7 +1,7 @@
 /* eslint-disable no-sequences */
 import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
+import { Paper, Grid } from '@material-ui/core';
 
 const Card = ({ images, name, price }) => {
   const [imageSrc, setImageSrc] = useState('');
@@ -41,6 +41,7 @@ const Card = ({ images, name, price }) => {
           <Grid item xs={4}>
             <Paper className="imgList">
               <img
+                className="activeImage"
                 src={imageSrc.src
                   ? imageSrc.src
                   : images[0]}

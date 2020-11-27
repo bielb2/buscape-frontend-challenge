@@ -3,20 +3,50 @@ body {
   padding: 0;
 }
 
+/* NAV BAR */
 nav {
-  width: 100%;
+  width: 60vw;
   height: 5rem;
+
+  background: rgb(253, 211, 21);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  position: relative;
+  
   margin-bottom: 30px;
+  padding: 0px 3rem 0px 3rem;
   border: 1px solid red;
 }
 
+.displayMarket {
+  width: 60vw;
+
+  position: absolute;
+  top: 5rem;
+  left: -0.4px;
+  padding: 0px 3rem 0px 3.01rem;
+
+
+  background: rgb(185, 155, 19);
+
+  border: 1px solid red;
+}
+
+.displayValue {
+  background: rgb(236, 197, 19);
+
+}
+/* END NAV BAR */
+
+/* HEADER */
 header {
-  width: 940px;
+  width: 65vw;
   height: 100vh;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 
 ul {
@@ -47,9 +77,7 @@ li>a>img:hover {
   margin-bottom: 4rem;
 }
 
-.imgList {
+.activeImage {
+  width: 20vw;
 }
-
-.activeImg {
-  height: 30%;
-}
+/* END HEADER */
