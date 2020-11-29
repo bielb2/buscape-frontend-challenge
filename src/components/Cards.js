@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
       {data.map((dataItem) => {
         const { images, name, price } = dataItem.product;
         return (
-          <Card data={data} images={images} name={name} price={price} />
+          <Card dataItem={dataItem} images={images} name={name} price={price} />
         );
       })}
     </>

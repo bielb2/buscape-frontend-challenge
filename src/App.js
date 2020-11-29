@@ -22,7 +22,6 @@ function App() {
     return <h1>Carregando</h1>;
   }
 
-  console.log(state);
   return (
     <>
       <Nav />

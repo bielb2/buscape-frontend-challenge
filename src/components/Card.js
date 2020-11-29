@@ -1,17 +1,14 @@
-/* eslint-disable no-sequences */
 import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
 
 const Card = ({
-  data, images, name, price,
+  dataItem, images, name, price,
 }) => {
-  const { value, installments, installmentValue } = price;
+  let { value, installments, installmentValue } = price;
 
   const [imageSrc, setImageSrc] = useState('');
   const [activeImage, setActiveImage] = useState(true);
-  const [shoppingCartValues, setShoppingCartValues] = useState([]);
-  console.log('🚀 ~ file: Card.js ~ line 16 ~ shoppingCartValues', shoppingCartValues);
 
   const handleImageSrc = (e) => {
     e.preventDefault();
@@ -19,13 +16,21 @@ const Card = ({
     setActiveImage(false);
   };
 
-  const handleShoppingCartButton = (buttonData) => {
-    setShoppingCartValues(...buttonData);
+  // localStorage
+  let myArray = [];
+  myArray.push(name, value, installments, installmentValue, images[0]);
+
+  const handleLocalStorage = (e) => {
+    localStorage.setItem(dataItem.product.id, myArray);
+    alert('Item adicionado com sucesso!');
+    window.location.reload(true);
   };
 
   const brCoin = (coin) => {
     return coin.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
   };
+  value = brCoin(value);
+  installmentValue = brCoin(installmentValue);
 
   return (
     <>
@@ -84,10 +89,10 @@ const Card = ({
                   {installments}
                   x de
                   {' '}
-                  {brCoin(installmentValue)}
+                  {installmentValue}
                 </span>
                 <button
-                  onClick={() => handleShoppingCartButton(data)}
+                  onClick={handleLocalStorage}
                   type="button"
                   className="cart"
                 >
@@ -96,7 +101,7 @@ const Card = ({
               </div>
               ou
               {' '}
-              <span className="smallGreenValue">{brCoin(value)}</span>
+              <span className="smallGreenValue">{value}</span>
               {' '}
               à vista
             </Paper>

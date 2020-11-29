@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Nav = () => {
   const [shoppingCart, setShoppingCart] = useState(false);
+  const [keysValues, setKeysValues] = useState([]);
 
   const handleShoppingCart = () => {
     setShoppingCart(!shoppingCart);
   };
+
+  const keys = Object.keys(localStorage);
+  useEffect(() => {
+    const myArray = [];
+    for (let i = 0; i < localStorage.length; i += 1) {
+      myArray.push(localStorage.getItem(keys[i]).split(','));
+    }
+    setKeysValues(myArray);
+  }, []);
 
   return (
     <>
@@ -16,8 +26,15 @@ const Nav = () => {
         </div>
 
         <button type="button" onClick={handleShoppingCart}>
-          ShoppingCard
+          shoppingCart
         </button>
+
+        {/* localStorage MAp */}
+        {keysValues.map((options) => {
+          return (
+            <></>
+          );
+        })}
 
         {shoppingCart
           ? (
@@ -34,7 +51,6 @@ const Nav = () => {
                   <li>value</li>
                 </ul>
               </div>
-
             </>
           )
           : ''}
