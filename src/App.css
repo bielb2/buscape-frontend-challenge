@@ -38,7 +38,10 @@ nav {
 
 .shoppingCartValues {
   background: rgb(236, 197, 19);
+}
 
+.shoppingCart>ul>li>img {
+  width: 10vw;
 }
 /* END NAV BAR */
 

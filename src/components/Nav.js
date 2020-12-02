@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Shopping from './Shopping';
 
 const Nav = () => {
   const [shoppingCart, setShoppingCart] = useState(false);
@@ -29,28 +30,28 @@ const Nav = () => {
           shoppingCart
         </button>
 
-        {/* localStorage MAp */}
+        {/* localStorage MAp
         {keysValues.map((options) => {
           return (
             <></>
           );
         })}
+        {console.log(keysValues)} */}
 
         {shoppingCart
           ? (
             <>
-              <div className="shoppingCart">
-                <ul>
-                  <li>img</li>
-                  <li>description</li>
-                  <li>value</li>
-                </ul>
-                <ul className="shoppingCartValues">
-                  <li>value</li>
-                  <li>value</li>
-                  <li>value</li>
-                </ul>
-              </div>
+              {keysValues.length !== 0
+                ? (
+                  keysValues.map((options) => {
+                    return (
+                      <>
+                        <Shopping options={options} />
+                      </>
+                    );
+                  })
+                )
+                : <div className="shoppingCart">Carrinho Vazio</div> }
             </>
           )
           : ''}

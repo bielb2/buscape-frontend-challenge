@@ -18,7 +18,7 @@ const Card = ({
 
   // localStorage
   let myArray = [];
-  myArray.push(name, value, installments, installmentValue, images[0]);
+  myArray.push(name, value, installments, installmentValue, images[0], dataItem.product.id);
 
   const handleLocalStorage = (e) => {
     localStorage.setItem(dataItem.product.id, myArray);
