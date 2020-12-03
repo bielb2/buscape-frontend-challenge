@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 import { BrCoin } from './BrCoin';
 
@@ -77,12 +78,24 @@ const Card = ({
           </Grid>
           <Grid item xs={5}>
             <Paper className="imgList">
-              <h2>{name}</h2>
+              <h2>
+                {name}
+                <div className="heartIcon">
+                  <AiOutlineHeart />
+
+                </div>
+
+              </h2>
               <h3>Melhor preço</h3>
               <div className="productInfo">
-                <span className="largeGreenValue">
+                <span className="installments">
                   {installments}
-                  x de
+                  x
+                </span>
+                <span className="largeGreenValue">
+
+                  {' '}
+                  <span className="installments">R$</span>
                   {' '}
                   {installmentValue}
                 </span>
@@ -92,11 +105,18 @@ const Card = ({
                   className="cart"
                 >
                   Adicionar ao carrinho
+
+                  {' '}
+                  {'>'}
                 </button>
               </div>
               ou
               {' '}
-              <span className="smallGreenValue">{value}</span>
+              <span className="smallGreenValue">
+                R$
+                {' '}
+                {value}
+              </span>
               {' '}
               à vista
             </Paper>

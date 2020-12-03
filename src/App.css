@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body {
   margin: 0;
   padding: 0;
+  background: rgb(238, 255, 253);
+  font-family: 'Nunito', sans-serif;
+
 }
 
 /* NAV BAR */
@@ -8,7 +13,7 @@ nav {
   width: 60vw;
   height: 5rem;
 
-  background: rgb(253, 211, 21);
+  background: #ffc600;
   
   display: flex;
   justify-content: space-between;
@@ -19,6 +24,19 @@ nav {
   
   margin-bottom: 30px;
   padding: 0px 3rem 0px 3rem;
+}
+
+.logo>a>img {
+  width: 85%;
+}
+
+.menuIcon {
+  background: none;
+  border: none;
+}
+
+.menuIcon>svg {
+  font-size: 1.5rem;
 }
 
 .shoppingCart {
@@ -40,7 +58,7 @@ nav {
 }
 
 .shoppingCartValues {
-  background: rgb(236, 197, 19);
+  background: rgb(221, 184, 20);
   width: 60.3vw;
   display: flex;
   flex-direction: row;
@@ -114,6 +132,95 @@ header {
   margin: 0 auto; 
 }
 
+h2{
+  border-bottom: 1px solid rgb(223, 215, 215);
+  font-weight: 400;
+
+  padding-bottom: 1rem;
+
+  
+}
+
+h2>div>svg {
+  width: 2vw;
+}
+
+svg,
+.removeItem {
+  cursor: pointer;
+}
+
+.heartIcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+h3 {
+  background: #3fb9ff;
+  color: #fff;
+
+  padding: 0.2rem;
+
+  width: 8rem;
+
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+
+
+.smallGreenValue,
+.largeGreenValue,
+.installments {
+  color: #18a136;
+}
+
+.installments {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #14b337;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+
+
+.largeGreenValue {
+  font-size: 1.5rem;
+    font-weight: 1000;
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-right: .4rem;
+}
+
+div.productInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+
+button.cart {
+  width: 50vw;
+
+  background: #1bd142;
+  color: #fff;
+
+  padding: .5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+
+  font-size: .9rem;
+  font-weight: 600;
+}
+
 ul {
   list-style-type: none;  
   float: left;
@@ -122,7 +229,7 @@ ul {
 }
 
 li>a>img {
-  width: 50%;
+  width: 70%;
   cursor: pointer;
   padding: 0.4rem;
   margin-bottom: 0.4rem;
@@ -143,6 +250,7 @@ li>a>img:hover {
 }
 
 .activeImage {
-  width: 20vw;
+  width: 15vw;
+  max-height: 50%;
 }
 /* END HEADER */

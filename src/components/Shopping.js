@@ -30,9 +30,13 @@ const Shopping = ({ options }) => {
             {installments}
             x de
             {' '}
+            R$
+            {' '}
             {installmentValue}
             <br />
             ou
+            {' '}
+            R$
             {' '}
             {value}
             {' '}

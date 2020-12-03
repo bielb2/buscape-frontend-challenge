@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
+
+import { AiOutlineMenu } from 'react-icons/ai';
 import Shopping from './Shopping';
 
 const Nav = () => {
@@ -31,12 +34,13 @@ const Nav = () => {
     <>
       <nav>
         <div className="logo">
-
-          Logo
+          <a href="#">
+            <img alt="logo" src="https://s.zst.com.br/ais/_next/public/asteroid/buscape/logo-white.svg" />
+          </a>
         </div>
 
-        <button type="button" onClick={handleShoppingCart}>
-          shoppingCart
+        <button type="button" className="menuIcon" onClick={handleShoppingCart}>
+          <AiOutlineMenu />
         </button>
         <div className="shoppingCart">
           {shoppingCart
