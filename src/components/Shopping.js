@@ -1,38 +1,54 @@
 import React from 'react';
 
+import { BrCoin } from './BrCoin';
+
 const Shopping = ({ options }) => {
-  const description = options[0];
-  const value = options[1];
-  const installments = options[2];
-  const installmentValue = options[3];
-  const img = options[4];
+  const { images, name, price } = options.product;
+
+  let { value, installments, installmentValue } = price;
+
+  value = BrCoin(value);
+  installmentValue = BrCoin(installmentValue);
+
+  const handleRemoveItem = (id) => {
+    localStorage.removeItem(id);
+    alert('Item removido!');
+    window.location.reload(true);
+  };
+
   return (
     <>
-      {console.log(options)}
-      <div className="shoppingCart">
-        <ul>
-          <li>
-            <img src={img} alt={description} />
-          </li>
-          <li>{description}</li>
-          <li>
-            À vista
-            {value}
-          </li>
-        </ul>
-        <ul className="shoppingCartValues">
-          <li>
-            Ou
-            {' '}
+      <ul className="shoppingCartValues">
+        <li>
+          <img src={images[0]} alt={name} />
+        </li>
+        <li className="productInfo">
+          <h4 className="shoppingName">
+            {name}
+          </h4>
+          <h4 className="shoppingValue">
             {installments}
             x de
             {' '}
             {installmentValue}
-          </li>
-          <li>value</li>
-          <li>value</li>
-        </ul>
-      </div>
+            <br />
+            ou
+            {' '}
+            {value}
+            {' '}
+            à vista
+
+          </h4>
+        </li>
+        <button
+          type="button"
+          className="removeItem"
+          onClick={() => handleRemoveItem(options.product.id)}
+        >
+          X
+        </button>
+      </ul>
+
     </>
   );
 };

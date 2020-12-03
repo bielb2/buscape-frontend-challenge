@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
 
+import { BrCoin } from './BrCoin';
+
 const Card = ({
   dataItem, images, name, price,
 }) => {
@@ -16,21 +18,14 @@ const Card = ({
     setActiveImage(false);
   };
 
-  // localStorage
-  let myArray = [];
-  myArray.push(name, value, installments, installmentValue, images[0], dataItem.product.id);
-
   const handleLocalStorage = (e) => {
-    localStorage.setItem(dataItem.product.id, myArray);
+    localStorage.setItem(dataItem.product.id, JSON.stringify(dataItem));
     alert('Item adicionado com sucesso!');
     window.location.reload(true);
   };
 
-  const brCoin = (coin) => {
-    return coin.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-  };
-  value = brCoin(value);
-  installmentValue = brCoin(installmentValue);
+  value = BrCoin(value);
+  installmentValue = BrCoin(installmentValue);
 
   return (
     <>
