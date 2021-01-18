@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import Shopping from './Shopping';
 
+import '../../styles/components/navbar.css';
+
 const Nav = () => {
   // const [shoppingCart, setShoppingCart] = useState(false);
   // const [keysValues, setKeysValues] = useState([]);

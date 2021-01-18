@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrCoin } from './BrCoin';
+import { BrCoin } from '../BrCoin';
 
 const Shopping = ({ options }) => {
   const { images, name, price } = options.product;

@@ -1,0 +1,110 @@
+nav {
+  width: 60vw;
+  height: 5rem;
+
+  background: #ffc600;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  position: relative;
+  
+  margin-bottom: 30px;
+  padding: 0px 3rem 0px 3rem;
+}
+
+.logo>a>img {
+  width: 85%;
+}
+
+.menuIcon {
+  background: none;
+  border: none;
+}
+
+.menuIcon>svg {
+  font-size: 1.5rem;
+}
+
+.shoppingCart {
+  width: 60vw;
+
+  position: absolute;
+  top: 5rem;
+  left: -0.4px;
+  padding: 0px 3rem 0px 3.01rem;
+
+
+  background: rgb(185, 155, 19);
+
+}
+
+.shoppingCartValues:first-child {
+  border-top: 3px solid rgb(185, 155, 19);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.shoppingCartValues {
+  background: rgb(221, 184, 20);
+  width: 60.3vw;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 4px solid  rgb(185, 155, 19);
+
+  align-items: flex-start;
+}
+
+.shoppingCart>ul>li>img{
+  width: 8vw;
+  margin: 1rem;
+  border: 1px solid black;
+}
+
+li.productInfo {
+  width: 25vw;
+}
+
+h4.shoppingName {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: calc(1rem - 2px);
+}
+
+h4.shoppingValue {
+  font-weight: 500;
+  font-size: calc(1rem - 2px);
+}
+
+div.totalValue {
+  width: 60vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.subTotal {
+  width: 60vw;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid black;
+}
+
+.spanTotalValue {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button.removeItem {
+  position: absolute;
+  left: 62vw;
+  margin-top: 1rem;
+}

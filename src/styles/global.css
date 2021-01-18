@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+}
+  
+body {
+  background: rgb(238, 255, 253);
+  font-family: 'Nunito', sans-serif;
+}
+
+button, svg,
+.removeItem {
+  cursor: pointer;
+} 
