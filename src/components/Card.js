@@ -78,15 +78,16 @@ const Card = ({
           </Grid>
           <Grid item xs={5}>
             <Paper className="imgList">
-              <h2>
+              <span className="productTitle">
                 {name}
-                <div className="heartIcon">
-                  <AiOutlineHeart />
 
-                </div>
+              </span>
+              <div className="productTitleArea">
 
-              </h2>
-              <h3>Melhor preço</h3>
+                <h3>Melhor preço</h3>
+                <span className="productHeartIcon"><AiOutlineHeart /></span>
+              </div>
+
               <div className="productInfo">
                 <span className="installments">
                   {installments}

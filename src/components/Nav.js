@@ -5,30 +5,30 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import Shopping from './Shopping';
 
 const Nav = () => {
-  const [shoppingCart, setShoppingCart] = useState(false);
-  const [keysValues, setKeysValues] = useState([]);
-  const [shopping, setShopping] = useState(false);
+  // const [shoppingCart, setShoppingCart] = useState(false);
+  // const [keysValues, setKeysValues] = useState([]);
+  // const [shopping, setShopping] = useState(false);
 
-  const handleShoppingCart = () => {
-    setShoppingCart(!shoppingCart);
-  };
+  // const handleShoppingCart = () => {
+  //   setShoppingCart(!shoppingCart);
+  // };
 
-  const keys = Object.keys(localStorage);
-  useEffect(() => {
-    const myArray = [];
-    for (let i = 0; i < localStorage.length; i += 1) {
-      myArray.push(JSON.parse(localStorage.getItem(keys[i]).split(',')));
-    }
-    setKeysValues(myArray);
-  }, []);
+  // const keys = Object.keys(localStorage);
+  // useEffect(() => {
+  //   const myArray = [];
+  //   for (let i = 0; i < localStorage.length; i += 1) {
+  //     myArray.push(JSON.parse(localStorage.getItem(keys[i]).split(',')));
+  //   }
+  //   setKeysValues(myArray);
+  // }, []);
 
-  keysValues.map((options) => {
-    return (
-      <>
-        <Shopping options={options} />
-      </>
-    );
-  });
+  // keysValues.map((options) => {
+  //   return (
+  //     <>
+  //       <Shopping options={options} />
+  //     </>
+  //   );
+  // });
 
   return (
     <>
@@ -39,11 +39,11 @@ const Nav = () => {
           </a>
         </div>
 
-        <button type="button" className="menuIcon" onClick={handleShoppingCart}>
+        <button type="button" className="menuIcon">
           <AiOutlineMenu />
         </button>
         <div className="shoppingCart">
-          {shoppingCart
+          {/* {shoppingCart
             ? (
               <>
                 {keysValues.length !== 0
@@ -84,7 +84,7 @@ const Nav = () => {
               </>
 
             )
-            : ''}
+            : ''} */}
         </div>
       </nav>
     </>

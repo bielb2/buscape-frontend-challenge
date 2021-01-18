@@ -5,7 +5,16 @@ body {
   padding: 0;
   background: rgb(238, 255, 253);
   font-family: 'Nunito', sans-serif;
+}
 
+button, svg,
+.removeItem {
+  cursor: pointer;
+} 
+
+
+#root {
+  width: 100%;
 }
 
 /* NAV BAR */
@@ -132,44 +141,62 @@ header {
   margin: 0 auto; 
 }
 
-h2{
-  border-bottom: 1px solid rgb(223, 215, 215);
-  font-weight: 400;
-
-  padding-bottom: 1rem;
-
-  
+.MuiPaper-root {
+  width: 100%;
 }
 
-h2>div>svg {
-  width: 2vw;
+ul.imgList {
+  list-style-type: none;  
+  float: left;
+  padding: 0;
+  margin: 0;
 }
 
-svg,
-.removeItem {
+.imgList>li>a>img {
+  width: 70%;
   cursor: pointer;
+  padding: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
-.heartIcon {
+.imgList>li>a>img.active {
+    border-radius: 1rem;
+    border: 1px solid rgb(211, 199, 199);
+}
+
+.imgList>li>a>img:hover {
+    border-radius: 1rem;
+    border: 1px solid rgb(211, 199, 199);
+} 
+
+.productTitleArea {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+.productHeartIcon>svg {
+  font-size: 1.2rem;
 }
 
-h3 {
+@media screen and (max-width: 600px) {
+  .productTitleArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
+.productTitleArea>h3 {
   background: #3fb9ff;
   color: #fff;
 
-  padding: 0.2rem;
-
-  width: 8rem;
+  padding: 0.5rem;
 
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 600;
 }
-
-
 
 .smallGreenValue,
 .largeGreenValue,
@@ -184,8 +211,6 @@ h3 {
   margin-top: 4px;
   margin-left: 4px;
 }
-
-
 
 .largeGreenValue {
   font-size: 1.5rem;
@@ -203,7 +228,6 @@ div.productInfo {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  
 }
 
 button.cart {
@@ -221,29 +245,7 @@ button.cart {
   font-weight: 600;
 }
 
-ul {
-  list-style-type: none;  
-  float: left;
-  padding: 0;
-  margin: 0;
-}
 
-li>a>img {
-  width: 70%;
-  cursor: pointer;
-  padding: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
-li>a>img.active {
-    border-radius: 1rem;
-    border: 1px solid rgb(211, 199, 199);
-}
-
-li>a>img:hover {
-    border-radius: 1rem;
-    border: 1px solid rgb(211, 199, 199);
-} 
 
 .paperContainer {
   margin-bottom: 4rem;
