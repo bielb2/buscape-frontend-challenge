@@ -1,4 +1,4 @@
-nav {
+nav.navbar-container {
   width: 60vw;
   height: 5rem;
 
@@ -15,20 +15,20 @@ nav {
   padding: 0px 3rem 0px 3rem;
 }
 
-.logo>a>img {
+.navbar-logo>a>img {
   width: 85%;
 }
 
-.menuIcon {
+button.navbar-menu-button {
   background: none;
   border: none;
 }
 
-.menuIcon>svg {
+button.navbar-menu-button>svg {
   font-size: 1.5rem;
 }
 
-.shoppingCart {
+div.navbar-shopping-cart {
   width: 60vw;
 
   position: absolute;
@@ -41,43 +41,45 @@ nav {
 
 }
 
-.shoppingCartValues:first-child {
+ul.navbar-cart-value:first-child {
   border-top: 3px solid rgb(185, 155, 19);
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
-.shoppingCartValues {
+ul.navbar-cart-value {
   background: rgb(221, 184, 20);
-  width: 60.3vw;
+  border-bottom: 4px solid  rgb(185, 155, 19);
+  
   display: flex;
   flex-direction: row;
-  border-bottom: 4px solid  rgb(185, 155, 19);
 
   align-items: flex-start;
+
+  list-style-type: none;
 }
 
-.shoppingCart>ul>li>img{
+ul.navbar-cart-value>li>img{
   width: 8vw;
   margin: 1rem;
   border: 1px solid black;
 }
 
-li.productInfo {
+li.navbar-product-info {
   width: 25vw;
 }
 
-h4.shoppingName {
+h4.navbar-shopping-title {
   color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: calc(1rem - 2px);
 }
 
-h4.shoppingValue {
+h4.navbar-shopping-value {
   font-weight: 500;
   font-size: calc(1rem - 2px);
 }
 
-div.totalValue {
+div.navbar-total-value-area {
   width: 60vw;
   height: 10vh;
   display: flex;
@@ -85,7 +87,7 @@ div.totalValue {
   justify-content: flex-end;
 }
 
-.subTotal {
+div.navbar-subtotal-value {
   width: 60vw;
   height: 8vh;
   display: flex;
@@ -94,7 +96,7 @@ div.totalValue {
   border-bottom: 1px solid black;
 }
 
-.spanTotalValue {
+div.navbar-total-value:nth-child(n+2) {
   width: 4rem;
   height: 4rem;
   display: flex;
@@ -103,7 +105,7 @@ div.totalValue {
   flex-direction: column;
 }
 
-button.removeItem {
+button.navbar-remove-item-button {
   position: absolute;
   left: 62vw;
   margin-top: 1rem;

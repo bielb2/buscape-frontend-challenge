@@ -2,8 +2,9 @@ import React from 'react';
 
 import { BrCoin } from '../BrCoin';
 
-const Shopping = ({ options }) => {
-  const { images, name, price } = options.product;
+const Shopping = ({ data }) => {
+  console.log(data);
+  const { images, name, price } = data.product;
 
   let { value, installments, installmentValue } = price;
 
@@ -18,15 +19,15 @@ const Shopping = ({ options }) => {
 
   return (
     <>
-      <ul className="shoppingCartValues">
+      <ul className="navbar-cart-value">
         <li>
           <img src={images[0]} alt={name} />
         </li>
-        <li className="productInfo">
-          <h4 className="shoppingName">
+        <li className="navbar-product-info">
+          <h4 className="navbar-shopping-title">
             {name}
           </h4>
-          <h4 className="shoppingValue">
+          <h4 className="navbar-shopping-value">
             {installments}
             x de
             {' '}
@@ -46,8 +47,8 @@ const Shopping = ({ options }) => {
         </li>
         <button
           type="button"
-          className="removeItem"
-          onClick={() => handleRemoveItem(options.product.id)}
+          className="navbar-remove-item-button"
+          onClick={() => handleRemoveItem(data.product.id)}
         >
           X
         </button>

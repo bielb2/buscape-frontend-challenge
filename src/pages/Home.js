@@ -1,5 +1,4 @@
-/* eslint-disable  */
-import React from 'react';
+import React, { useContext } from 'react';
 import useRequest from '../hooks/useRequest';
 
 import ProductCard from '../components/ProductCard/ProductCard';
@@ -15,21 +14,19 @@ const Home = () => {
   }
 
   return (
-    <header>
+    <header className="home-container">
       <Nav />
-      {dataResponse.map((dataItem, index) => {
-        const { images, name, price } = dataItem.product;
-        return (
-          <main key={`product ${index}`}>
-            <ProductCard
-              dataItem={dataItem}
-              images={images}
-              name={name}
-              price={price}
-            />
-          </main>
-        );
-      })}
+      <main className="home-main-container">
+        {dataResponse.map((product, index) => {
+          return (
+            <div key={`product ${index}`}>
+              <ProductCard
+                product={product}
+              />
+            </div>
+          );
+        })}
+      </main>
     </header>
 
   );

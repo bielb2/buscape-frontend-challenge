@@ -1,31 +1,33 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
+
 import { AiOutlineHeart } from 'react-icons/ai';
+import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 import { BrCoin } from '../BrCoin';
 
+import '../../styles/components/product-card.css';
+
 const ProductCard = ({
-  dataItem, images, name, price,
+  product,
 }) => {
+  const { setPayload } = useShoppingCartItems();
   const [imageSrc, setImageSrc] = useState('');
   const [activeImage, setActiveImage] = useState(true);
 
+  const { images, name, price } = product.product;
   let { value, installments, installmentValue } = price;
   value = BrCoin(value);
   installmentValue = BrCoin(installmentValue);
 
   const handleImageSrc = (e) => {
-    e.preventDefault();
     setImageSrc(e.target);
     setActiveImage(false);
   };
 
-  const handleLocalStorage = (e) => {
-    localStorage.setItem(dataItem.product.id, JSON.stringify(dataItem));
-    alert('Item adicionado com sucesso!');
-    window.location.reload(true);
+  const handlePayload = () => {
+    setPayload((prevstate) => [...prevstate, product]);
   };
 
   return (
@@ -34,38 +36,40 @@ const ProductCard = ({
         <Grid container wrap="nowrap" spacing={3}>
           <Grid item xs={2}>
             <Paper>
-              {images.map((image, index) => {
-                return (
-                  <ul
-                    key={`image ${index}`}
-                    className="product-card-image-list-area"
-                  >
-                    <li>
-                      <a href={image} onClick={handleImageSrc}>
-                        {index === 0
-                          ? (
-                            <img
-                              className={image === imageSrc.src || activeImage ? 'active' : ''}
-                              onClick={handleImageSrc}
-                              src={image}
-                              alt={name}
-                              onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
-                            />
-                          )
-                          : (
-                            <img
-                              className={image === imageSrc.src ? 'active' : ''}
-                              onClick={handleImageSrc}
-                              src={image}
-                              alt={name}
-                              onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
-                            />
-                          )}
-                      </a>
-                    </li>
-                  </ul>
-                );
-              })}
+              <ul
+                className="product-card-image-list-area"
+              >
+                {images.map((image, index) => {
+                  return (
+                    <div key={`image ${index}`}>
+
+                      <li key={`image ${index}`}>
+                        <a href={image} onClick={handleImageSrc}>
+                          {index === 0
+                            ? (
+                              <img
+                                className={image === imageSrc.src || activeImage ? 'active' : ''}
+                                onClick={handleImageSrc}
+                                src={image}
+                                alt={name}
+                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
+                              />
+                            )
+                            : (
+                              <img
+                                className={image === imageSrc.src ? 'active' : ''}
+                                onClick={handleImageSrc}
+                                src={image}
+                                alt={name}
+                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
+                              />
+                            )}
+                        </a>
+                      </li>
+                    </div>
+                  );
+                })}
+              </ul>
             </Paper>
           </Grid>
           <Grid item xs={4}>
@@ -99,7 +103,7 @@ const ProductCard = ({
                   {installmentValue}
                 </span>
                 <button
-                  onClick={handleLocalStorage}
+                  onClick={handlePayload}
                   type="button"
                   className="product-card-cart-button"
                 >

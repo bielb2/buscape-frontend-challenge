@@ -1,59 +1,51 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 
 import { AiOutlineMenu } from 'react-icons/ai';
 import Shopping from './Shopping';
 
 import '../../styles/components/navbar.css';
+import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 const Nav = () => {
-  // const [shoppingCart, setShoppingCart] = useState(false);
-  // const [keysValues, setKeysValues] = useState([]);
-  // const [shopping, setShopping] = useState(false);
+  const { payload } = useShoppingCartItems();
 
-  // const handleShoppingCart = () => {
-  //   setShoppingCart(!shoppingCart);
-  // };
+  const [localStoragePayloadData, setLocalStoragePayloadData] = useState([]);
+  const [componentShoppingCart, setComponentShoppingCart] = useState(false);
 
-  // const keys = Object.keys(localStorage);
-  // useEffect(() => {
-  //   const myArray = [];
-  //   for (let i = 0; i < localStorage.length; i += 1) {
-  //     myArray.push(JSON.parse(localStorage.getItem(keys[i]).split(',')));
-  //   }
-  //   setKeysValues(myArray);
-  // }, []);
+  useEffect(() => {
+    const handleLocalStorage = localStorage.getItem('@reactapp/payload');
+    setLocalStoragePayloadData(JSON.parse(handleLocalStorage));
+  }, [payload]);
 
-  // keysValues.map((options) => {
-  //   return (
-  //     <>
-  //       <Shopping options={options} />
-  //     </>
-  //   );
-  // });
+  console.log(localStoragePayloadData);
 
   return (
     <>
-      <nav>
-        <div className="logo">
+      <nav className="navbar-container">
+        <div className="navbar-logo">
           <a href="#">
             <img alt="logo" src="https://s.zst.com.br/ais/_next/public/asteroid/buscape/logo-white.svg" />
           </a>
         </div>
 
-        <button type="button" className="menuIcon">
+        <button
+          type="button"
+          className="navbar-menu-button"
+          onClick={() => setComponentShoppingCart(!componentShoppingCart)}
+
+        >
           <AiOutlineMenu />
         </button>
-        <div className="shoppingCart">
-          {/* {shoppingCart
+        <div className="navbar-shopping-cart">
+          {componentShoppingCart
             ? (
               <>
-                {keysValues.length !== 0
+                {localStoragePayloadData.length !== 0
                   ? (
-                    keysValues.map((options, index) => {
+                    localStoragePayloadData.map((data) => {
                       return (
                         <>
-                          <Shopping options={options} />
+                          <Shopping data={data} />
 
                         </>
                       );
@@ -63,30 +55,28 @@ const Nav = () => {
               </>
             )
             : ''}
-          {shoppingCart
+          {componentShoppingCart
             ? (
               <>
-                {keysValues.length === localStorage.length && keysValues.length !== 0
+                {localStoragePayloadData.length !== 0
                   ? (
                     <>
-                      <div className="totalValue">
-                        <div className="subTotal">
+                      <div className="navbar-total-value-area">
+                        <div className="navbar-subtotal-value">
                           <h4>subtotal</h4>
                           <br />
                         </div>
 
                       </div>
-                      <div className="totalValue">
+                      <div className="navbar-total-value">
                         <span>value</span>
                         <span>value</span>
                       </div>
-
                     </>
                   ) : ''}
               </>
-
             )
-            : ''} */}
+            : ''}
         </div>
       </nav>
     </>
