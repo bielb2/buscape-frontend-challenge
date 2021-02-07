@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import useRequest from '../hooks/useRequest';
 
 import ProductCard from '../components/ProductCard/ProductCard';
@@ -14,12 +14,14 @@ const Home = () => {
   }
 
   return (
-    <header className="home-container">
-      <Nav />
+    <>
+      <header className="home-container">
+        <Nav />
+      </header>
       <main className="home-main-container">
-        {dataResponse.map((product, index) => {
+        {dataResponse.map((product) => {
           return (
-            <div key={`product ${index}`}>
+            <div key={product.product.id}>
               <ProductCard
                 product={product}
               />
@@ -27,8 +29,7 @@ const Home = () => {
           );
         })}
       </main>
-    </header>
-
+    </>
   );
 };
 

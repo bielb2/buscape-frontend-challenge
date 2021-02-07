@@ -5,21 +5,18 @@ import { Paper, Grid } from '@material-ui/core';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
-import { BrCoin } from '../BrCoin';
-
 import '../../styles/components/product-card.css';
 
 const ProductCard = ({
   product,
 }) => {
-  const { setPayload } = useShoppingCartItems();
+  const { setPayload, handleLocalStoragePayload, handleProductCartData } = useShoppingCartItems();
   const [imageSrc, setImageSrc] = useState('');
   const [activeImage, setActiveImage] = useState(true);
 
-  const { images, name, price } = product.product;
-  let { value, installments, installmentValue } = price;
-  value = BrCoin(value);
-  installmentValue = BrCoin(installmentValue);
+  const {
+    images, name, installments, brazilianCurrency,
+  } = handleProductCartData(product);
 
   const handleImageSrc = (e) => {
     setImageSrc(e.target);
@@ -28,6 +25,7 @@ const ProductCard = ({
 
   const handlePayload = () => {
     setPayload((prevstate) => [...prevstate, product]);
+    handleLocalStoragePayload();
   };
 
   return (
@@ -42,8 +40,7 @@ const ProductCard = ({
                 {images.map((image, index) => {
                   return (
                     <div key={`image ${index}`}>
-
-                      <li key={`image ${index}`}>
+                      <li>
                         <a href={image} onClick={handleImageSrc}>
                           {index === 0
                             ? (
@@ -100,7 +97,7 @@ const ProductCard = ({
                 <span className="product-card-large-value">
                   {' '}
                   {' '}
-                  {installmentValue}
+                  {brazilianCurrency.installmentValue}
                 </span>
                 <button
                   onClick={handlePayload}
@@ -108,7 +105,6 @@ const ProductCard = ({
                   className="product-card-cart-button"
                 >
                   Adicionar ao carrinho
-
                   {' '}
                   {'>'}
                 </button>
@@ -118,7 +114,7 @@ const ProductCard = ({
               <span className="product-cart-small-green-value">
                 R$
                 {' '}
-                {value}
+                {brazilianCurrency.value}
               </span>
               {' '}
               à vista

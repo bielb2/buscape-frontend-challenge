@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './pages/Home';
 
-import ShoppingCartItemsProvider from './context/ShoppingCartItems';
+import { ShoppingCartItemsProvider } from './context/ShoppingCartItems';
 
 import './styles/global.css';
 

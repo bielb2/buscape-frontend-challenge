@@ -1,21 +1,40 @@
 import React from 'react';
-
-import { BrCoin } from '../BrCoin';
+import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 const Shopping = ({ data }) => {
-  console.log(data);
+  const { payload } = useShoppingCartItems();
+
   const { images, name, price } = data.product;
 
   let { value, installments, installmentValue } = price;
-
-  value = BrCoin(value);
-  installmentValue = BrCoin(installmentValue);
 
   const handleRemoveItem = (id) => {
     localStorage.removeItem(id);
     alert('Item removido!');
     window.location.reload(true);
   };
+
+  // useEffect(() => {
+  //   const handleLocalStorage = localStorage.getItem('@reactapp/payload');
+  //   setLocalStoragePayloadData(JSON.parse(handleLocalStorage));
+  // }, [payload]);
+
+  // const [localStoragePayloadData, setLocalStoragePayloadData] = useState([]);
+
+  //   <>
+  //     {localStoragePayloadData.length !== 0
+  //       ? (
+  //         localStoragePayloadData.map((data) => {
+  //           return (
+  //             <>
+  //               <Shopping data={data} />
+
+  //             </>
+  //           );
+  //         })
+  //       )
+  //       : <h1>Carrinho Vazio!</h1>}
+  //   </>
 
   return (
     <>
