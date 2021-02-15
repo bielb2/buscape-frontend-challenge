@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function useRequest(json) {
-  const [dataResponse, setDataResponse] = useState();
+  const [dataResponse, setDataResponse] = useState([]);
 
   useEffect(() => {
     const getDataFromJson = async () => {

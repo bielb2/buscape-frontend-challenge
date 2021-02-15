@@ -12,7 +12,7 @@ export function ShoppingCartItemsProvider({ children }) {
   const [payload, setPayload] = useState([]);
 
   const handleLocalStoragePayload = () => {
-    if (payload.length !== 0) {
+    if (payload) {
       localStorage.setItem('@reactapp/payload', JSON.stringify(payload));
     }
   };

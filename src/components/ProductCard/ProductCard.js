@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
 
@@ -11,21 +11,20 @@ const ProductCard = ({
   product,
 }) => {
   const { setPayload, handleLocalStoragePayload, handleProductCartData } = useShoppingCartItems();
-  const [imageSrc, setImageSrc] = useState('');
-  const [activeImage, setActiveImage] = useState(true);
+  const [imageIndex, setImageIndex] = useState(0);
 
   const {
     images, name, installments, brazilianCurrency,
   } = handleProductCartData(product);
 
-  const handleImageSrc = (e) => {
-    setImageSrc(e.target);
-    setActiveImage(false);
-  };
-
   const handlePayload = () => {
     setPayload((prevstate) => [...prevstate, product]);
     handleLocalStoragePayload();
+  };
+
+  const handleActiveImage = (event, index) => {
+    event.preventDefault();
+    setImageIndex(index);
   };
 
   return (
@@ -41,26 +40,13 @@ const ProductCard = ({
                   return (
                     <div key={`image ${index}`}>
                       <li>
-                        <a href={image} onClick={handleImageSrc}>
-                          {index === 0
-                            ? (
-                              <img
-                                className={image === imageSrc.src || activeImage ? 'active' : ''}
-                                onClick={handleImageSrc}
-                                src={image}
-                                alt={name}
-                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
-                              />
-                            )
-                            : (
-                              <img
-                                className={image === imageSrc.src ? 'active' : ''}
-                                onClick={handleImageSrc}
-                                src={image}
-                                alt={name}
-                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
-                              />
-                            )}
+                        <a href={image} onClick={(event) => handleActiveImage(event, index)}>
+                          <img
+                            className={index === imageIndex ? 'active' : null}
+                            src={image}
+                            alt={name}
+                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
+                          />
                         </a>
                       </li>
                     </div>
@@ -72,9 +58,7 @@ const ProductCard = ({
           <Grid item xs={4}>
             <Paper className="product-card-active-image-area">
               <img
-                src={imageSrc.src
-                  ? imageSrc.src
-                  : images[0]}
+                src={images[imageIndex]}
                 alt={name}
               />
             </Paper>

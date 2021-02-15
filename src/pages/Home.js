@@ -6,10 +6,15 @@ import Nav from '../components/Navbar/Nav';
 
 import '../styles/pages/home.css';
 
+/** TODO
+** Arrumar a formatação dos dados da dataResponse, setar um newDate aqui na home
+** para facilitar na desestruturação e deixar os valores dinamicos (Moeda brasileira)
+ */
+
 const Home = () => {
   const { dataResponse } = useRequest('data.json');
 
-  if (dataResponse === undefined) {
+  if (!dataResponse) {
     return <h1>Loading</h1>;
   }
 

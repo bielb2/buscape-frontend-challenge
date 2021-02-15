@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { AiOutlineMenu } from 'react-icons/ai';
-import Shopping from './Shopping';
+import ShoppingCart from '../ShoppingCart/Shopping';
 
 import '../../styles/components/navbar.css';
 
@@ -25,7 +25,7 @@ const Nav = () => {
         </button>
         <div className="navbar-shopping-cart">
           {componentShoppingCart
-            && <Shopping /> }
+            && <ShoppingCart /> }
         </div>
       </nav>
     </>
