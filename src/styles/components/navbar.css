@@ -22,10 +22,27 @@ nav.navbar-container {
 button.navbar-menu-button {
   background: none;
   border: none;
+  display: flex;
+}
+
+button.navbar-menu-button>span{
+  background: red;
+  border-radius: 50%;
+
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 3px;
+  width: 16px;
 }
 
 button.navbar-menu-button>svg {
   font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+
+}
+
+button.navbar-menu-button>svg:hover {
+  color: #707070;
 }
 
 div.navbar-shopping-cart {
@@ -33,7 +50,7 @@ div.navbar-shopping-cart {
 
   position: absolute;
   top: 5rem;
-  left: -0.4px;
+  left: -0.3px;
   padding: 0px 3rem 0px 3.01rem;
 
 

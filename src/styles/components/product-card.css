@@ -59,6 +59,10 @@ span.product-card-heart-icon>svg {
   margin-right: 0.5rem;
 }
 
+span.product-card-heart-icon>svg.product-card-active-heart {
+  transition: all 0.9s ease-in;
+}
+
 @media screen and (max-width: 658px) {
   div.product-card-better-price-area {
     display: flex;
@@ -155,4 +159,10 @@ button.product-card-cart-button {
 
   font-size: .9rem;
   font-weight: 600;
+
+  transition: all 0.3s ease-in;
+}
+
+button.product-card-cart-button:hover {
+  background: #05ac29;
 }

@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { BsTrash } from 'react-icons/bs';
 
-import { Popconfirm } from 'antd';
 import CountUp from 'react-countup';
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
-import { convertValueToBrazilianCurrency } from '../../hooks/useBrazilianCoin';
 
 const ShoppingCart = () => {
-  const { payload, setPayload, getBalance } = useShoppingCartItems();
+  const { payload, getBalance, handleRemoveItem } = useShoppingCartItems();
 
   const { totalValue, installmentTotalValue } = getBalance();
-  console.log(totalValue.toString(), installmentTotalValue);
-
-  const handleRemoveItem = (id) => {
-    const removeItem = payload.filter((product) => product.id !== id);
-    setPayload(removeItem);
-    if (payload.length === 1 || removeItem.length === 0) {
-      localStorage.removeItem('@reactapp/payload');
-    }
-  };
 
   if (payload.length) {
     return (
@@ -36,20 +25,15 @@ const ShoppingCart = () => {
                 </h4>
                 <h4 className="navbar-shopping-value">
                   {product.price.installments}
-                  x de
-                  {' '}
-                  R$
+                  x de R$
                   {' '}
                   {product.price.installmentValue}
                   <br />
-                  ou
-                  {' '}
-                  R$
+                  ou R$
                   {' '}
                   {product.price.value}
                   {' '}
                   à vista
-
                 </h4>
               </li>
 
@@ -62,7 +46,6 @@ const ShoppingCart = () => {
               </button>
             </div>
           ))}
-
         </ul>
         <div className="navbar-total-value-area">
           <div>
@@ -74,7 +57,7 @@ const ShoppingCart = () => {
               {' '}
               <CountUp
                 end={installmentTotalValue}
-                duration={1}
+                duration={1.5}
                 decimals={2}
                 decimal=","
               />

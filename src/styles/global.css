@@ -13,6 +13,7 @@
 body {
   background: rgb(238, 255, 253);
   font-family: 'Nunito', sans-serif;
+  position: relative;
 }
 
 button, svg,

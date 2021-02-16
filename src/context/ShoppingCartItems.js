@@ -13,8 +13,15 @@ export function ShoppingCartItemsProvider({ children }) {
   const [payload, setPayload] = useState([]);
 
   const handlePayloadShoppingCart = (product) => {
-    alert('Produto adicionado ao carrinho');
     setPayload((prevstate) => [...prevstate, product]);
+  };
+
+  const handleRemoveItem = (id) => {
+    const filteredItems = payload.filter((product) => product.id !== id);
+    setPayload(filteredItems);
+    if (payload.length === 1 || filteredItems.length === 0) {
+      localStorage.removeItem('@reactapp/payload');
+    }
   };
 
   const getBalance = () => {
@@ -40,17 +47,11 @@ export function ShoppingCartItemsProvider({ children }) {
     localStorage.setItem('@reactapp/payload', JSON.stringify(payload));
   }, [payload.length]);
 
-  useEffect(() => {
-    const handleLocalStorage = localStorage.getItem('@reactapp/payload');
-    if (handleLocalStorage) {
-      setPayload(JSON.parse(handleLocalStorage));
-    }
-  }, []);
-
   const data = {
     payload,
     setPayload,
     handlePayloadShoppingCart,
+    handleRemoveItem,
     getBalance,
   };
 

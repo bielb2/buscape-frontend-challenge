@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
-import { AiOutlineMenu } from 'react-icons/ai';
+import { FiShoppingCart } from 'react-icons/fi';
 import ShoppingCart from '../ShoppingCart/Shopping';
+import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 import '../../styles/components/navbar.css';
 
 const Nav = () => {
   const [componentShoppingCart, setComponentShoppingCart] = useState(false);
+
+  const { payload } = useShoppingCartItems();
 
   return (
     <>
@@ -21,7 +24,11 @@ const Nav = () => {
           className="navbar-menu-button"
           onClick={() => setComponentShoppingCart(!componentShoppingCart)}
         >
-          <AiOutlineMenu />
+          <FiShoppingCart />
+          {payload.length
+            ? (<span>{payload.length}</span>)
+            : null }
+
         </button>
         <div className="navbar-shopping-cart">
           {componentShoppingCart

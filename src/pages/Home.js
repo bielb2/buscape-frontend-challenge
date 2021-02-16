@@ -9,10 +9,19 @@ import '../styles/pages/home.css';
 
 const Home = () => {
   const { dataResponse } = useRequest('data.json');
+  const { setPayload } = useShoppingCartItems();
+
+  useEffect(() => {
+    const handleLocalStorage = localStorage.getItem('@reactapp/payload');
+    if (handleLocalStorage) {
+      setPayload(JSON.parse(handleLocalStorage));
+    }
+  }, []);
 
   if (!dataResponse) {
     return <h1>Loading</h1>;
   }
+
   return (
     <>
       <header className="home-container">

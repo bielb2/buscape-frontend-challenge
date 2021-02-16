@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
@@ -12,6 +12,7 @@ const ProductCard = ({
 }) => {
   const { handlePayloadShoppingCart } = useShoppingCartItems();
   const [imageIndex, setImageIndex] = useState(0);
+  const [heartActive, setHeartActive] = useState(false);
 
   const handleActiveImage = (event, index) => {
     event.preventDefault();
@@ -36,7 +37,6 @@ const ProductCard = ({
                             className={index === imageIndex ? 'active' : null}
                             src={image}
                             alt={product.name}
-                            onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
                           />
                         </a>
                       </li>
@@ -51,6 +51,7 @@ const ProductCard = ({
               <img
                 src={product.images[imageIndex]}
                 alt={product.name}
+                onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
               />
             </Paper>
           </Grid>
@@ -61,7 +62,11 @@ const ProductCard = ({
               </span>
               <div className="product-card-better-price-area">
                 <h3>Melhor preço</h3>
-                <span className="product-card-heart-icon"><AiOutlineHeart /></span>
+                <span className="product-card-heart-icon">
+                  {heartActive
+                    ? <AiFillHeart className="product-card-active-heart" color="#ff0d0d" onClick={() => setHeartActive(false)} />
+                    : <AiOutlineHeart onClick={() => setHeartActive(true)} />}
+                </span>
               </div>
               <div className="product-card-info-buy-area">
                 <span className="product-card-installments">
