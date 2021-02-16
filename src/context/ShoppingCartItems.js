@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState } from 'react';
-
-import { convertValueToBrazilianCurrency } from '../hooks/useBrazilianCoin';
+/* eslint-disable no-param-reassign */
+import React, {
+  createContext, useContext, useEffect, useState,
+} from 'react';
 
 const ShoppingCartItemsContext = createContext();
 
@@ -11,33 +12,46 @@ export const useShoppingCartItems = () => {
 export function ShoppingCartItemsProvider({ children }) {
   const [payload, setPayload] = useState([]);
 
-  const handleLocalStoragePayload = () => {
-    if (payload) {
-      localStorage.setItem('@reactapp/payload', JSON.stringify(payload));
+  const handlePayloadShoppingCart = (product) => {
+    alert('Produto adicionado ao carrinho');
+    setPayload((prevstate) => [...prevstate, product]);
+  };
+
+  const getBalance = () => {
+    const { totalValue, installmentTotalValue } = payload.reduce(
+      (accumlator, payloadArray) => {
+        const totalCalculationValue = payloadArray.price.value.replace('.', '');
+        const installmentCalculationValue = payloadArray.price.installmentValue.replace('.', '');
+        accumlator.totalValue += parseFloat(totalCalculationValue.replace(',', '.'));
+        accumlator.installmentTotalValue += parseFloat(installmentCalculationValue.replace(',', '.'));
+
+        return accumlator;
+      },
+      {
+        totalValue: 0,
+        installmentTotalValue: 0,
+      },
+    );
+
+    return { totalValue, installmentTotalValue };
+  };
+
+  useEffect(() => {
+    localStorage.setItem('@reactapp/payload', JSON.stringify(payload));
+  }, [payload.length]);
+
+  useEffect(() => {
+    const handleLocalStorage = localStorage.getItem('@reactapp/payload');
+    if (handleLocalStorage) {
+      setPayload(JSON.parse(handleLocalStorage));
     }
-  };
-
-  const handleProductCartData = (data) => {
-    const { images, name, price } = data.product;
-    let { value, installments, installmentValue } = price;
-
-    const brazilianCurrency = {
-      value: convertValueToBrazilianCurrency(value),
-      installmentValue: convertValueToBrazilianCurrency(installmentValue),
-    };
-
-    const productData = {
-      images, name, installments, brazilianCurrency,
-    };
-
-    return productData;
-  };
+  }, []);
 
   const data = {
     payload,
     setPayload,
-    handleLocalStoragePayload,
-    handleProductCartData,
+    handlePayloadShoppingCart,
+    getBalance,
   };
 
   return (

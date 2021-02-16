@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
-
 import { AiOutlineHeart } from 'react-icons/ai';
+
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 import '../../styles/components/product-card.css';
@@ -10,17 +10,8 @@ import '../../styles/components/product-card.css';
 const ProductCard = ({
   product,
 }) => {
-  const { setPayload, handleLocalStoragePayload, handleProductCartData } = useShoppingCartItems();
+  const { handlePayloadShoppingCart } = useShoppingCartItems();
   const [imageIndex, setImageIndex] = useState(0);
-
-  const {
-    images, name, installments, brazilianCurrency,
-  } = handleProductCartData(product);
-
-  const handlePayload = () => {
-    setPayload((prevstate) => [...prevstate, product]);
-    handleLocalStoragePayload();
-  };
 
   const handleActiveImage = (event, index) => {
     event.preventDefault();
@@ -36,7 +27,7 @@ const ProductCard = ({
               <ul
                 className="product-card-image-list-area"
               >
-                {images.map((image, index) => {
+                {product.images.map((image, index) => {
                   return (
                     <div key={`image ${index}`}>
                       <li>
@@ -44,7 +35,7 @@ const ProductCard = ({
                           <img
                             className={index === imageIndex ? 'active' : null}
                             src={image}
-                            alt={name}
+                            alt={product.name}
                             onError={(e) => { e.target.onerror = null; e.target.src = 'https://ik.imagekit.io/b0g9wlasxh/buscape-images/images_ZDQgkWoQc.png'; }}
                           />
                         </a>
@@ -58,15 +49,15 @@ const ProductCard = ({
           <Grid item xs={4}>
             <Paper className="product-card-active-image-area">
               <img
-                src={images[imageIndex]}
-                alt={name}
+                src={product.images[imageIndex]}
+                alt={product.name}
               />
             </Paper>
           </Grid>
           <Grid item xs={5}>
             <Paper>
               <span className="product-card-span-title">
-                {name}
+                {product.name}
               </span>
               <div className="product-card-better-price-area">
                 <h3>Melhor preço</h3>
@@ -74,17 +65,17 @@ const ProductCard = ({
               </div>
               <div className="product-card-info-buy-area">
                 <span className="product-card-installments">
-                  {installments}
+                  {product.price.installments}
                   x
                 </span>
                 <span className="product-card-installments-real">R$</span>
                 <span className="product-card-large-value">
                   {' '}
                   {' '}
-                  {brazilianCurrency.installmentValue}
+                  {product.price.installmentValue}
                 </span>
                 <button
-                  onClick={handlePayload}
+                  onClick={() => { handlePayloadShoppingCart(product); }}
                   type="button"
                   className="product-card-cart-button"
                 >
@@ -98,7 +89,7 @@ const ProductCard = ({
               <span className="product-cart-small-green-value">
                 R$
                 {' '}
-                {brazilianCurrency.value}
+                {product.price.value}
               </span>
               {' '}
               à vista
