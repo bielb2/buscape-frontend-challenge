@@ -111,7 +111,7 @@ const ProductCard = ({
                   alertState={alertState}
                   setAlertState={setAlertState}
                 >
-                  Sucesso! item adicionado com sucesso
+                  Sucesso! Item adicionado ao carrinho.
                 </Alert>
                 )}
               </div>
