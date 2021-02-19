@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 
 import { Paper, Grid } from '@material-ui/core';
+
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
 import '../../styles/components/product-card.css';
+import Alert from '../Alert';
 
 const ProductCard = ({
   product,
 }) => {
+  const [alertState, setAlertState] = useState(false);
+
   const { handlePayloadShoppingCart } = useShoppingCartItems();
   const [imageIndex, setImageIndex] = useState(0);
   const [heartActive, setHeartActive] = useState(false);
@@ -17,6 +21,13 @@ const ProductCard = ({
   const handleActiveImage = (event, index) => {
     event.preventDefault();
     setImageIndex(index);
+  };
+
+  const handleAddProduct = () => {
+    handlePayloadShoppingCart({
+      currentProduct: product,
+    });
+    setAlertState(true);
   };
 
   return (
@@ -64,7 +75,13 @@ const ProductCard = ({
                 <h3>Melhor preço</h3>
                 <span className="product-card-heart-icon">
                   {heartActive
-                    ? <AiFillHeart className="product-card-active-heart" color="#ff0d0d" onClick={() => setHeartActive(false)} />
+                    ? (
+                      <AiFillHeart
+                        className="product-card-active-heart"
+                        color="#ff0d0d"
+                        onClick={() => setHeartActive(false)}
+                      />
+                    )
                     : <AiOutlineHeart onClick={() => setHeartActive(true)} />}
                 </span>
               </div>
@@ -80,7 +97,7 @@ const ProductCard = ({
                   {product.price.installmentValue}
                 </span>
                 <button
-                  onClick={() => { handlePayloadShoppingCart(product); }}
+                  onClick={handleAddProduct}
                   type="button"
                   className="product-card-cart-button"
                 >
@@ -88,6 +105,15 @@ const ProductCard = ({
                   {' '}
                   {'>'}
                 </button>
+                {alertState && (
+                <Alert
+                  severity="success"
+                  alertState={alertState}
+                  setAlertState={setAlertState}
+                >
+                  Sucesso! item adicionado com sucesso
+                </Alert>
+                )}
               </div>
               ou
               {' '}

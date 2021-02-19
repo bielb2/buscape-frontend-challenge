@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { BsTrash } from 'react-icons/bs';
 
 import CountUp from 'react-countup';
 import { useShoppingCartItems } from '../../context/ShoppingCartItems';
 
+import Dialogs from '../Dialogs';
+
 const ShoppingCart = () => {
   const { payload, getBalance, handleRemoveItem } = useShoppingCartItems();
-
   const { totalValue, installmentTotalValue } = getBalance();
+
+  const [dialogState, setDialogState] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState([]);
+
+  const handleDialog = (product) => {
+    setDialogState(true);
+    setCurrentProduct(product);
+  };
 
   if (payload.length) {
     return (
       <>
-        <ul className="navbar-cart-value">
+        <ul className="navbar-cart-value fadeIn">
           {payload.map((product, index) => (
             <div key={index}>
               <li>
@@ -40,7 +49,7 @@ const ShoppingCart = () => {
               <button
                 type="button"
                 className="navbar-remove-item-button"
-                onClick={() => handleRemoveItem(product.id)}
+                onClick={() => handleDialog(product)}
               >
                 <BsTrash color="#cc0000" title="Excluir produto" size={18} />
               </button>
@@ -77,6 +86,16 @@ const ShoppingCart = () => {
 
           </div>
         </div>
+        {dialogState && (
+        <Dialogs
+          dialogState={dialogState}
+          setDialogState={setDialogState}
+          handleFunction={() => handleRemoveItem({
+            currentProductId: currentProduct.id,
+          })}
+          product={currentProduct}
+        />
+        )}
       </>
     );
   }
