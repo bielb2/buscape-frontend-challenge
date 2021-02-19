@@ -12,25 +12,38 @@ export const useShoppingCartItems = () => {
 export function ShoppingCartItemsProvider({ children }) {
   const [payload, setPayload] = useState([]);
 
-  const handlePayloadShoppingCart = (product) => {
-    setPayload((prevstate) => [...prevstate, product]);
+  const handlePayloadShoppingCart = ({ currentProduct }) => {
+    setPayload((prevstate) => [...prevstate, currentProduct]);
   };
 
-  const handleRemoveItem = (id) => {
-    const filteredItems = payload.filter((product) => product.id !== id);
-    setPayload(filteredItems);
-    if (payload.length === 1 || filteredItems.length === 0) {
+  const handleRemoveItem = ({ currentProductId }) => {
+    const filteredProducts = payload.filter((product) => product.id !== currentProductId);
+    setPayload(filteredProducts);
+
+    if (payload.length === 1 || filteredProducts.length === 0) {
       localStorage.removeItem('@reactapp/payload');
     }
+  };
+
+  const convertCalculableValue = (reducePayload) => {
+    const convertTotalValue = reducePayload.price.value.replace('.', '');
+    const convertInstallmentValue = reducePayload.price.installmentValue.replace('.', '');
+    const calculableTotalValue = parseFloat(convertTotalValue.replace(',', '.'));
+    const calculableInstallmentValue = parseFloat(convertInstallmentValue.replace(',', '.'));
+
+    return { calculableTotalValue, calculableInstallmentValue };
   };
 
   const getBalance = () => {
     const { totalValue, installmentTotalValue } = payload.reduce(
       (accumlator, payloadArray) => {
-        const totalCalculationValue = payloadArray.price.value.replace('.', '');
-        const installmentCalculationValue = payloadArray.price.installmentValue.replace('.', '');
-        accumlator.totalValue += parseFloat(totalCalculationValue.replace(',', '.'));
-        accumlator.installmentTotalValue += parseFloat(installmentCalculationValue.replace(',', '.'));
+        const {
+          calculableTotalValue,
+          calculableInstallmentValue,
+        } = convertCalculableValue(payloadArray);
+
+        accumlator.totalValue += calculableTotalValue;
+        accumlator.installmentTotalValue += calculableInstallmentValue;
 
         return accumlator;
       },
