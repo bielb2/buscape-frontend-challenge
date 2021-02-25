@@ -16,9 +16,9 @@
 
 ## :star: Bonus game
 
-* Trocar imagens quebradas para imagens de erro default.
-* Renderizar no server side.
-* Persistir os dados.
+* :white_check_mark: Trocar imagens quebradas para imagens de erro default.
+* :white_check_mark: Renderizar no server side.
+* :white_check_mark: Persistir os dados.
 * Teste do código.
 
 ## Onde encontrar mais desafios?
