@@ -8,10 +8,10 @@
 
 ## :white_check_mark: Pré-requisitos
 
-* Layout responsivo.
-* Listar os produtos.
-* Adicionar no carrinho.
-* Remover do carrinho.
+* :white_check_mark: Layout responsivo.
+* :white_check_mark: Listar os produtos.
+* :white_check_mark: Adicionar no carrinho.
+* :white_check_mark:Remover do carrinho.
 * Galeria de imagens
 
 ## :star: Bonus game
