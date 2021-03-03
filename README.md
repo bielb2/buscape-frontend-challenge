@@ -26,6 +26,26 @@
 * :white_check_mark: Persistir os dados.
 * Teste do código.
 
+## ⌨ Como executar o projeto
+
+```bash
+# Clonar o repositório
+git clone https://github.com/bielb2/buscape-frontend-challenge
+
+# Entrar no diretório
+cd buscape-frontend-challenge
+
+# Baixar as dependências
+yarn ou npm i
+
+# Executar o servidor
+yarn start ou npm start
+```
+
+Feito isso, abra o seu navegador e acesse `http://localhost:3000/`
+
+---
+
 ## Onde encontrar mais desafios?
 
 * Você pode acessar o repositório https://github.com/felipefialho/frontend-challenges e escolher.
