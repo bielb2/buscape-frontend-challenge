@@ -1,5 +1,10 @@
 # :computer: Desafio front-end para vaga da empresa Buscape já expirada. Em breve um ótimo readme aqui =D.
 
+## :movie_camera: Preview
+<p align="center">   
+  <img src="https://ik.imagekit.io/b0g9wlasxh/Readme_Images/buscape-frontend-challenge/ezgif.com-gif-maker_LbTwC1sb9.gif" alt="Preview" />
+</p>
+
 ## :trophy: Quais tecnologias utilizei até o momento?
 
 * React
@@ -11,7 +16,7 @@
 * :white_check_mark: Layout responsivo.
 * :white_check_mark: Listar os produtos.
 * :white_check_mark: Adicionar no carrinho.
-* :white_check_mark:Remover do carrinho.
+* :white_check_mark: Remover do carrinho.
 * Galeria de imagens
 
 ## :star: Bonus game
