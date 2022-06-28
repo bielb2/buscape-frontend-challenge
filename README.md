@@ -1,4 +1,5 @@
-# :computer: Desafio front-end para vaga da empresa Buscape já expirada. Em breve um ótimo readme aqui =D.
+# [pt-BR]
+# :computer: Desafio front-end para vaga da empresa Buscape já expirada.
 
 ## :movie_camera: Preview
 <p align="center">   
